@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- THE FIX: Explicitly forces Chrome to render Unicode/Emojis perfectly -->
+  <meta charset="UTF-8">
+  <style>
+    body { width: 380px; padding: 15px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #fafafa; }
+    h3 { margin-top: 0; color: #111; font-weight: 700; border-bottom: 2px solid #111; padding-bottom: 5px; }
+    #status-log { font-family: 'Courier New', monospace; font-size: 10px; color: #444; background: #f0f0f0; padding: 8px; border-radius: 4px; margin-bottom: 12px; display: none; max-height: 100px; overflow-y: auto; }
+    #report { font-size: 13.5px; line-height: 1.6; color: #222; margin-bottom: 15px; text-align: justify; }
+    .media-heading { font-weight: bold; font-size: 12px; margin: 15px 0 5px 0; color: #007bff; text-transform: uppercase; }
+    .media-vault { display: flex; flex-direction: column; gap: 10px; }
+    video, img { width: 100%; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); background: #000; }
+    .loader { font-style: italic; color: #777; }
+    button { width: 100%; padding: 12px; background: #111; color: white; border: none; font-weight: bold; border-radius: 4px; cursor: pointer; }
+    button:disabled { background: #999; }
+  </style>
+</head>
+<body>
+  <h3>📰 THE DAILY SCOOP</h3>
+  <div id="status-log"></div>
+  
+  <div id="report">
+    <span class="loader">Your morning brief is uncompiled. Press the handle below to fetch latest telemetry anomalies.</span>
+  </div>
+
+  <div class="media-heading">👁️ Anonymous Media Vault</div>
+  <div id="vault" class="media-vault">
+    <span class="loader" style="font-size:11px;">No unread target stories buffered yet.</span>
+  </div>
+
+  <button id="generate-btn" style="margin-top:15px;">Compile Morning Digest</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "InstaDigest Ultimate Engine",
+  "version": "1.1.0",
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
+  "host_permissions": [
+    "https://*.instagram.com/*",
+    "http://localhost/*",
+    "https://*.fbcdn.net/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.instagram.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["https://*.instagram.com/*"]
+    }
+  ]
+}
